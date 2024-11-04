@@ -55,12 +55,13 @@ class SODARCheck:
         self.api_headers = {
             'Authorization': f'token {settings.SODAR_API_TOKEN}'
         }
+        self.davrods_url = settings.DAVRODS_URL or settings.SODAR_URL
+        self.davrods_url += settings.IRODS_FILE_PATH
         self.irods_pw = getpass.getpass(prompt='iRODS password: ')
         self.irods_kw = {
             'irods_env_file': settings.IRODS_ENV_PATH,
             'password': self.irods_pw,
         }
-        self.davrods_url = settings.DAVRODS_URL + settings.IRODS_FILE_PATH
         # Test iRODS connection
         try:
             with iRODSSession(**self.irods_kw) as irods:

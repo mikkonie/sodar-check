@@ -11,7 +11,7 @@ IRODS_ENV_PATH = os.getenv(
 IRODS_FILE_PATH = os.getenv(
     'SODAR_CHECK_IRODS_FILE_PATH', '/sodarZone/path/to/your/file.txt'
 )
-DAVRODS_URL = os.getenv('SODAR_CHECK_DAVRODS_URL', '0.0.0.0')
+DAVRODS_URL = os.getenv('SODAR_CHECK_DAVRODS_URL', '')
 CHECK_INTERVAL = os.getenv('SODAR_CHECK_INTERVAL', 10)
 LOG_LEVEL = os.getenv('SODAR_CHECK_LOG_LEVEL', 'INFO')
 LOG_FORMAT = os.getenv(

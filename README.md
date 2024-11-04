@@ -38,4 +38,5 @@ Tested on Python 3.11.
    file must also be able to access this file.
 2. If the SODAR instance is deployed using
    [sodar-docker-compose](https://github.com/bihealth/sodar-docker-compose),
-   this should be the same URL as for the SODAR server.
+   this should be the same URL as for the SODAR server. If left empty, the SODAR
+   server URL is assumed.
