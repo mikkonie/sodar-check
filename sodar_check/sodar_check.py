@@ -22,6 +22,19 @@ log_handler.setFormatter(log_formatter)
 logger.addHandler(log_handler)
 
 API_PATH = '/project/api/users/current'
+SETTINGS = [
+    'SODAR_URL',
+    'IRODS_ENV_PATH',
+    'IRODS_FILE_PATH',
+    'DAVRODS_URL',
+    'CHECK_INTERVAL',
+    'LOG_LEVEL',
+    'LOG_FORMAT',
+    'LOG_DATEFMT',
+]
+SETTINGS_TOKEN = 'SODAR_API_TOKEN'
+SETTING_SET = '<set>'
+SETTING_UNSET = '<unset>'
 
 
 class SODARCheck:
@@ -29,7 +42,14 @@ class SODARCheck:
 
     def __init__(self):
         logger.debug('Init SODAR Check..')
-        print(settings.IRODS_ENV_PATH)
+        # Log settings
+        for s in SETTINGS:
+            logger.debug(f'{s}={getattr(settings, s, SETTING_UNSET)}')
+        token_set = getattr(settings, SETTINGS_TOKEN, None) not in ['', None]
+        # Don't log secret token
+        logger.debug(
+            f'{SETTINGS_TOKEN}={SETTING_SET if token_set else SETTING_UNSET}'
+        )
         # Set vars
         self.api_url = settings.SODAR_URL + API_PATH
         self.api_headers = {
