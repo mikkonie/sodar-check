@@ -14,10 +14,11 @@ Tested on Python 3.11.
 
 ## Usage
 
-1. Install requirements with `pip install -r requirements.txt`
-2. Create `.env` file with your configuration (see below)
-3. Run with `make run`
-4. Observe the log output. Problems show up with the `ERROR` log level.
+1. Install requirements with `pip install -r requirements.txt`.
+2. Create `.env` file with your configuration (see below).
+3. Run with `make run`.
+4. Insert the iRODS password of the specified user when prompted.
+5. Observe the log output. Problems show up with the `ERROR` log level.
 
 ## Configuration
 
