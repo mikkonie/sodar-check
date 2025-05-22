@@ -131,7 +131,7 @@ class SODARCheck:
                 )
                 return True
             except Exception as ex:
-                logger.error(f'ERROR: Failed to read file: {ex}')
+                logger.error(f'ERROR: Failed to read file from iRODS: {ex}')
                 return False
 
     def check_davrods_file_read(self):
